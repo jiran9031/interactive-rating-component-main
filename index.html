@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="rating_content">
+      <img src="images/icon-star.svg" alt="">
+      <h1>
+        How did we do?
+      </h1>
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </p>
+      <ul>
+        <li><button class="btn" id="btn_3" type="submit">1</button></li>
+        <li><button class="btn" id="btn_3"  type="submit">2</button></li>
+        <li><button class="btn" id="btn_3" type="submit">3</button></li>
+        <li><button class="btn" id="btn_3" type="submit">4</button></li>
+        <li><button class="btn" id="btn_3" type="submit">5</button></li>
+      </ul>
+      <input type="button" class="submit_btn" id="submit_bnt_rate" value="SUBMIT">
+    </div>
+    <div class="thanks rate">
+      <img src="images/illustration-thank-you.svg" alt="">
+      <p class="special" id="special_1">
+        You selected
+        <span id="number">5</span>
+        out of 5
+      </p>
+      <h1>Thank you!</h1>
+      <p>
+        We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch!
+      </p>
+      <input type="button" class="submit_btn" id="submit_bnt_thanks" value="Rate Again">
+    </div>
+  </div>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script>
+    const rate_box = document.querySelector(".rating_content")
+    const thanks_box = document.querySelector(".thanks")
+    const buttons = document.querySelectorAll(".btn")
+    const rate_btn = document.getElementById("submit_bnt_rate")
+    const thanks_bnt = document.getElementById("submit_bnt_thanks")
+    const output = document.getElementById("number")
+    console.log(output)
+    rate_btn.addEventListener("click",()=>{
+      rate_box.style.display="none"
+      thanks_box.classList.remove("rate")
+    })
+    thanks_bnt.addEventListener("click",() =>{
+      thanks_box.classList.add("rate")
+      rate_box.style.display="block"
+    })
+    buttons.forEach((button)=>{
+      button.addEventListener("click",()=>{
+        // console.log(button.innerHTML)
+        output.innerHTML= button.innerHTML
+      })
+    })
+  </script>
+</body>
+
+</html>
